@@ -1,0 +1,82 @@
+﻿<UserControl x:Class="SliderMenuDUI.View.UserControls.ListUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SliderMenuDUI"
+             mc:Ignorable="d"  
+             MinHeight="300"
+             MinWidth="400"
+             Background="White"
+             >
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <Style x:Key="toolbar" TargetType="{x:Type Button}">
+                <Setter Property="Margin" Value="0,1,2,1"></Setter>
+                <Setter Property="Padding" Value="1"></Setter>
+                <Setter Property="Width" Value="30"></Setter>
+            </Style>
+        </ResourceDictionary>
+    </UserControl.Resources>    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="32"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+         </Grid.RowDefinitions>
+        <Border BorderBrush="Gray" 
+                BorderThickness="1"
+                Margin="0,2"
+                Padding="2"
+                Grid.Row="0">
+        <StackPanel  >
+            <ToolBarPanel >
+                <StackPanel Orientation="Horizontal"
+                            >
+                    <Button Style="{StaticResource toolbar}">
+                        <Path Stroke="#274bf0"  Data="{StaticResource ic_list_add}"/>
+                    </Button>
+                    <Button Style="{StaticResource toolbar}"  >
+                        <Path Stroke="#274bf0"  Data="{StaticResource ic_list_edit}"/>
+                    </Button>
+                    <Button Style="{StaticResource toolbar}"  >
+                        <Path Stroke="#274bf0"  Data="{StaticResource ic_list_view}"/>
+                    </Button>
+                    <Button Style="{StaticResource toolbar}"  >
+                        <Path Stroke="#274bf0"  Data="{StaticResource ic_list_delete}"/>
+                    </Button>                    
+                    <Button Style="{StaticResource toolbar}"  >
+                        <Path Stroke="#274bf0"  Data="{StaticResource ic_list_copy}"/>
+                    </Button>                    
+                    </StackPanel>
+                
+            </ToolBarPanel>
+        </StackPanel>
+        </Border>
+
+
+        <DataGrid 
+            x:Name="dbGrid" 
+            Grid.Row="1" 
+            MinHeight="500"
+            VerticalAlignment="Stretch"
+            DataContext="{Binding Source=list}"
+            AutoGenerateColumns="False" 
+            CanUserResizeColumns="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Path=ID}"/>
+                <DataGridTextColumn Header="Date" Binding="{Binding Path=Date}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Border BorderBrush="Gray" 
+                BorderThickness="1"
+                Margin="0,2"
+                Padding="2"
+                Grid.Row="2">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Kayıt sayısı: 1000"></TextBlock>
+            </StackPanel>
+        </Border>
+
+    </Grid>
+</UserControl>
