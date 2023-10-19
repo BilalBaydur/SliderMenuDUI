@@ -1,4 +1,4 @@
 # SliderMenuDUI
-Basit bir slider menu örnegi
+Wpf ile basit bir slider menu örneği
 
-Example of a simple slider menu
+Example of a simple slider menu with wpf
